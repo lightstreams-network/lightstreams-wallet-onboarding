@@ -7,11 +7,11 @@ const config = [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/metamask-onboarding.cjs.js',
+        file: 'dist/lightstreams-onboarding.cjs.js',
         format: 'cjs',
       },
       {
-        file: 'dist/metamask-onboarding.es.js',
+        file: 'dist/lightstreams-onboarding.es.js',
         format: 'es',
       },
     ],
@@ -21,9 +21,9 @@ const config = [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/metamask-onboarding.bundle.js',
+        file: 'dist/lightstreams-onboarding.bundle.js',
         format: 'iife',
-        name: 'MetaMaskOnboarding',
+        name: 'LightstreamsOnboarding',
       },
     ],
     plugins: [typescript(), resolve()],

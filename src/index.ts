@@ -41,7 +41,7 @@ export default class Onboarding {
   } = {}) {
     this.forwarderOrigin = forwarderOrigin;
     this.forwarderMode = forwarderMode;
-    this.state = Onboarding.isMetaMaskInstalled()
+    this.state = Onboarding.isWalletInstalled()
       ? ONBOARDING_STATE.INSTALLED
       : ONBOARDING_STATE.NOT_INSTALLED;
 
@@ -99,7 +99,7 @@ export default class Onboarding {
       case ONBOARDING_STATE.NOT_INSTALLED:
         console.debug('Reloading now to register with MetaMask');
         this.state = ONBOARDING_STATE.RELOADING;
-        if (Onboarding.isMetaMaskInstalled()) {
+        if (Onboarding.isWalletInstalled()) {
           location.reload();
         }
 
@@ -165,9 +165,9 @@ export default class Onboarding {
   }
 
   /**
-   * Checks whether the MetaMask extension is installed
+   * Checks whether the Lightstreams Wallet extension is installed
    */
-  static isMetaMaskInstalled() {
+  static isWalletInstalled() {
     return Boolean(
       (window as any).lightstreams,
     );

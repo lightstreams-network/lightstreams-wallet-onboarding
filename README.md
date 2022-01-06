@@ -1,58 +1,55 @@
-# MetaMask Onboarding
+# Lightstreams Onboarding
 
-This library is used to help onboard new MetaMask users. It allows you to ask the MetaMask extension to redirect users back to your page after onboarding has finished.
+This library is used to help onboard new Lightstreams users. It allows you to ask the Lightstreams extension to redirect users back to your page after onboarding has finished.
 
-This library will register the current page as having initiated onboarding, so that MetaMask knows where to redirect the user after onboarding. Note that the page will be automatically reloaded a single time once a MetaMask installation is detected, in order to facilitate this registration.
+This library will register the current page as having initiated onboarding, so that Lightstreams knows where to redirect the user after onboarding. Note that the page will be automatically reloaded a single time once a Lightstreams installation is detected, in order to facilitate this registration.
 
 ## Installation
 
-`@metamask/onboarding` is made available as either a CommonJS module, and ES6 module, or an ES5 bundle.
+`@lightstreams/onboarding` is made available as either a CommonJS module, and ES6 module, or an ES5 bundle.
 
-- ES6 module: `import MetaMaskOnboarding from '@metamask/onboarding'`
-- ES5 module: `const MetaMaskOnboarding = require('@metamask/onboarding')`
-- ES5 bundle: `dist/metamask-onboarding.bundle.js` (this can be included directly in a page)
+- ES6 module: `import LightstreamsOnboarding from '@lightstreams/onboarding'`
+- ES5 module: `const LightstreamsOnboarding = require('@lightstreams/onboarding')`
+- ES5 bundle: `dist/lightstreams-onboarding.bundle.js` (this can be included directly in a page)
 
-## Usage
-
-[See _§ Onboarding Library_ on the MetaMask Docs website for examples.](https://docs.metamask.io/guide/onboarding-library.html)
 
 ## API
 
-Assuming `import MetaMaskOnboarding from '@metamask/onboarding'`, the following API is available.
+Assuming `import LightstreamsOnboarding from '@lightstreams/onboarding'`, the following API is available.
 
 ### Static methods
 
-#### `MetaMaskOnboarding.isMetaMaskInstalled()`
+#### `LightstreamsOnboarding.isMetaMaskInstalled()`
 
-Returns `true` if a MetaMask-like provider is detected, or `false` otherwise. Note that we don't provide any guarantee that this is correct, as non-MetaMask wallets can disguise themselves as MetaMask.
+Returns `true` if a Lightstreams-like provider is detected, or `false` otherwise. Note that we don't provide any guarantee that this is correct, as non-Lightstreams wallets can disguise themselves as Lightstreams.
 
 ### Static properties
 
-#### `MetaMaskOnboarding.FORWARDER_MODE`
+#### `LightstreamsOnboarding.FORWARDER_MODE`
 
 A set of constants for each of the available forwarder modes.
 
 | Constant   | Description                                                                                                                            |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| `INJECT`   | Inject a `iframe` to that will refresh until MetaMask has installed                                                                    |
-| `OPEN_TAB` | Open a tab to a new page that will refresh until MetaMask has installed—this is only useful if the client app has disallowed `iframes` |
+| `INJECT`   | Inject a `iframe` to that will refresh until Lightstreams has installed                                                                    |
+| `OPEN_TAB` | Open a tab to a new page that will refresh until Lightstreams has installed—this is only useful if the client app has disallowed `iframes` |
 
 ### Constructor
 
-#### `new MetaMaskOnboarding()`
+#### `new LightstreamsOnboarding()`
 
 The constructor accepts an optional options bag with the following:
 
 | Option            | Description                                                                                                 |
 | :---------------- | :---------------------------------------------------------------------------------------------------------- |
-| `forwarderOrigin` | Override the forwarder URL, useful for testing. **Optional**, defaults to `'https://fwd.metamask.io'`.      |
-| `forwarderMode`   | One of the available forwarder modes. **Optional**, defaults to `MetaMaskOnboarding.FORWARDER_MODE.INJECT`. |
+| `forwarderOrigin` | Override the forwarder URL, useful for testing. **Optional**.      |
+| `forwarderMode`   | One of the available forwarder modes. **Optional**, defaults to `LightstreamsOnboarding.FORWARDER_MODE.INJECT`. |
 
 ### Instance methods
 
 #### `startOnboarding()`
 
-Starts onboarding by opening the MetaMask download page and waiting for MetaMask to be installed. Once the MetaMask extension installation is detected, a message will be sent to MetaMask to register the current site as the onboarding initiator.
+Starts onboarding by opening the Lightstreams download page and waiting for Lightstreams to be installed. Once the Lightstreams extension installation is detected, a message will be sent to Lightstreams to register the current site as the onboarding initiator.
 
 #### `stopOnboarding()`
 
@@ -74,7 +71,7 @@ Run `yarn lint` to run the linter.
 
 ### Release & Publishing
 
-The project follows the same release process as the other libraries in the MetaMask organization:
+The project follows the same release process as the other libraries in the Lightstreams organization:
 
 1. Create a release branch
    - For a typical release, this would be based on `main`
