@@ -10,9 +10,9 @@ const ONBOARDING_STATE = {
 
 const EXTENSION_DOWNLOAD_URL = {
   CHROME:
-    'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn',
-  FIREFOX: 'https://addons.mozilla.org/firefox/addon/ether-metamask/',
-  DEFAULT: 'https://metamask.io',
+    'https://chrome.google.com/webstore/detail/lightstreams-wallet/bjpgjikkpigjhblalajifcdmokjnlegk',
+  FIREFOX: 'https://lightstreams.network',
+  DEFAULT: 'https://lightstreams.network',
 };
 
 // sessionStorage key
@@ -99,7 +99,10 @@ export default class Onboarding {
       case ONBOARDING_STATE.NOT_INSTALLED:
         console.debug('Reloading now to register with MetaMask');
         this.state = ONBOARDING_STATE.RELOADING;
-        location.reload();
+        if (Onboarding.isMetaMaskInstalled()) {
+          location.reload();
+        }
+
         break;
 
       case ONBOARDING_STATE.INSTALLED:
@@ -166,7 +169,7 @@ export default class Onboarding {
    */
   static isMetaMaskInstalled() {
     return Boolean(
-      (window as any).ethereum && (window as any).ethereum.isMetaMask,
+      (window as any).lightstreams,
     );
   }
 
